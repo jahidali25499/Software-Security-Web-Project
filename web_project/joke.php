@@ -40,7 +40,7 @@
 
 	while($row = $result->fetch_assoc()) {
 	  
-	  echo $row['comment']. "<br><br>";
+	  echo $row['comment'];
 	 }
 ?>
 <br><br><p>Add a new joke?

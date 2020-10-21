@@ -1,5 +1,8 @@
 <html>
 <link rel="stylesheet" href="pure-min.css"
+<head>
+
+</head>
 <body>
 
   <?php
@@ -11,7 +14,7 @@
 
   //connect to the db and append the new joke
   $conn = new mysqli( "127.0.0.1", "root", "1qaz2wsx", "cmp5358" );
-  $sql = "update users set comments = concat( comments, '" . $text_submitted . "' ) where username='" . $user . "'";
+  $sql = "update all_comments set comment = concat('" . $text_submitted . "' ) where username='" . $user . "'";
   $result = mysqli_query( $conn, $sql );
   echo "query was: " . $sql;
 
