@@ -49,7 +49,7 @@
 
   //otherwise either the username or the password (or both) were not correct
   else {
-    echo "<br><br>Incorrect username or password :(<br><br>go <a href=/login.php>back</a>.";
+  	echo "<br><br>Incorrect username or password :(<br><br>go <a href=/login.php>back</a>.";
   }
   ?>
 
