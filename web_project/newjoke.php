@@ -11,7 +11,8 @@
 
   //connect to the db and append the new joke
   $conn = new mysqli( "127.0.0.1", "root", "1qaz2wsx", "cmp5358" );
-  $sql = "update all_comments set comment = concat('" . $text_submitted . "' ) where username='" . $user . "'";
+  $uid = $_SESSION['uid'];
+  $sql = "insert into all_comments (comment, uid) values('" . $text_submitted . "' , '" . $uid ."')";
   $result = mysqli_query( $conn, $sql );
   echo "query was: " . $sql;
 
