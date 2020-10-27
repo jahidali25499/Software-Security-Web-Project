@@ -7,14 +7,17 @@
 
   session_start();
 
+  // Use CSP to only allow javascript coming from 'check_password.js' - Stop XSS
+  header("Content-Security-Policy: script-src http://localhost/check_password.js");
+	
   // kick out users who don't bother to login
-
   if ($_SESSION["login"] !== true) {
     header("Location: /login.php");
   }
 
+  	
 ?>
-
+ 
 </head>
 
 <body>
@@ -28,9 +31,9 @@
 
 <h3>Update your details</h3> 
 
-
 <form class="pure-form pure-form-stacked" action="/update_details.php" method="post">
   <fieldset>
+
     <label for="username">Username:</label>
     <input type="text" id="usename" name="username" value=<?php echo $_SESSION["username"]; ?> >
 
@@ -56,23 +59,7 @@
   </fieldset>
 </form>
 
-<script>
-
-var password = document.getElementById("password")
-  , confirm_password = document.getElementById("con_password");
-
-function validatePassword(){
-  if(password.value != confirm_password.value) {
-    confirm_password.setCustomValidity("Passwords Don't Match");
-  } else {
-    confirm_password.setCustomValidity('');
-  }
-}
-
-password.onchange = validatePassword;
-con_password.onkeyup = validatePassword;
-
-</script>
+<script src="check_password.js"></script>
 
 
 
