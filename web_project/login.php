@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="pure-min.css">
 
 <head>
-
+  
 </head>
 
 <body>
@@ -28,7 +28,6 @@
     <button type = "submit" class="pure-button pure-button-primary">Login</button>
   </fieldset>
 </form>
-
 </body>
 
 
