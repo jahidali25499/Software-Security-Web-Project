@@ -8,17 +8,15 @@
   $text_submitted = "<br><br>" . $_POST['newjoke'];
 
   //connect to the db and append the new joke
-<<<<<<< HEAD
   $conn = new mysqli( "127.0.0.1", "root", "1qaz2wsx", "web_project" );
  
   $sql = "update all_comments set comment = concat( comment, '" . $text_submitted . "' ) where username='" . $user . '"';
   echo $sql;
  
-=======
   $conn = new mysqli( "127.0.0.1", "root", "1qaz2wsx", "cmp5358" );
   $uid = $_SESSION['uid'];
   $sql = "insert into all_comments (comment, uid) values('" . $text_submitted . "' , '" . $uid ."')";
->>>>>>> 896aaddd79baaea6ca609b370d86807302260edd
+
   $result = mysqli_query( $conn, $sql );
 
   //the below is just html formating
