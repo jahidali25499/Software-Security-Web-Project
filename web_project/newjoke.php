@@ -7,13 +7,13 @@
   if ( isset($_SESSION['username'] ) ) $user = $_SESSION['username'];
   $text_submitted = "<br><br>" . $_POST['newjoke'];
 
-  echo "submited: " . $text_submitted;
-
   //connect to the db and append the new joke
-  $conn = new mysqli( "127.0.0.1", "root", "1qaz2wsx", "cmp5358" );
-  $sql = "update users set comments = concat( comments, '" . $text_submitted . "' ) where username='" . $user . "'";
+  $conn = new mysqli( "127.0.0.1", "root", "1qaz2wsx", "web_project" );
+ 
+  $sql = "update all_comments set comment = concat( comment, '" . $text_submitted . "' ) where username='" . $user . '"';
+  echo $sql;
+ 
   $result = mysqli_query( $conn, $sql );
-  echo "query was: " . $sql;
 
   //the below is just html formating
   echo '<span style="position: absolute; margin: auto; top: 0; right: 0; bottom: 0; left: 0; width: 500px; height: 200px;">';

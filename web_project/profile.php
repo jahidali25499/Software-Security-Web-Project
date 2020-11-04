@@ -7,8 +7,6 @@
 
   session_start();
 
-  // Use CSP to only allow javascript coming from 'check_password.js' - Stop XSS
-  header("Content-Security-Policy: script-src http://localhost/check_password.js");
 	
   // kick out users who don't bother to login
   if ($_SESSION["login"] !== true) {
@@ -35,7 +33,7 @@
   <fieldset>
 
     <label for="username">Username:</label>
-    <input type="text" id="usename" name="username" value=<?php echo $_SESSION["username"]; ?> >
+    <input type="text" id="usename" name="username" value= <?php echo '"'. htmlspecialchars($_SESSION["username"]) . '"'; ?> >
 
     <label for="password">Password:</label>
     <input type="password" id="password" name="password"> 
@@ -44,16 +42,16 @@
     <input type="password" id="con_password" name="con_password"> 
 
     <label for="fir_name">First Name:</label>
-    <input type="fir_name" id="fir_name" name="fir_name" value=<?php echo $_SESSION["first_name"]; ?> > 
+    <input type="fir_name" id="fir_name" name="fir_name" value= <?php echo htmlspecialchars($_SESSION["first_name"]) ; ?> > 
   
     <label for="last_name">Last Name:</label>
-    <input type="last_name" id="last_name" name="last_name" value=<?php echo $_SESSION["last_name"]; ?> >
+    <input type="last_name" id="last_name" name="last_name" value= <?php echo '"'. htmlspecialchars($_SESSION["last_name"]) . '"'; ?> >
 
     <label for="email">Email:</label>
-    <input type="email" id="email" name="email" value=<?php echo $_SESSION["email"]; ?> > 
+    <input type="email" id="email" name="email" value= <?php echo '"'. htmlspecialchars($_SESSION["email"]) . '"'; ?> > 
 
     <label for="address">Address:</label> 
-    <input type="address" id="address" name="address" value= <?php echo '"'.$_SESSION["address"] .'"'; ?> > <br><br>
+    <input type="address" id="address" name="address" value= <?php echo '"'. htmlspecialchars($_SESSION["address"]) .'"'; ?> > <br><br>
 
     <button type = "submit" class="pure-button pure-button-primary">Update</button>
   </fieldset>

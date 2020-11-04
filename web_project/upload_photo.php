@@ -46,7 +46,6 @@ if (strpos($external_url, $extension) !== false) {
 		$command = "wget " . $external_url . " -O " . $file_name . ".jpg";
 		exec($command . ' 2>&1', $output);
 		var_dump($output);
-
 		echo "Photo uploaded!";	
 		echo "<br><br> go <a href=/profile.php>back</a>";
 	}

@@ -17,10 +17,10 @@
 
 	foreach ($details as $key => $value) {
 
-		if ($value !== "") {
+		if ($value !== "") {	
 
-			$sql = "UPDATE users SET " . $key . "=" . "'".$value . "'" . " WHERE uid=" . $_SESSION["uid"];
-
+			$sql = "UPDATE users SET " . $key . "=" . "'". $value . "'" . " WHERE uid=" . $_SESSION["uid"];
+			
 			if (mysqli_query($conn, $sql)) {
 			} 
 			else {
@@ -29,6 +29,6 @@
 		}
 	}
 
-	echo "<script> alert('Record Successfully Inserted'); window.location.replace('/profile.php');</script>";	
+	echo "<script> alert('Record Successfully Inserted'); window.location.replace('/logout.php');</script>";	
 
 ?>
