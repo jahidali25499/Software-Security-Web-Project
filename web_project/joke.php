@@ -30,18 +30,16 @@
 
 <?php
 
-	//echo "<span style='position: absolute; margin: auto; top: 0; right: 0; bottom: 0; left: 0; width: 500px; height: 200px;'><b>Joke:</b><br>";
-	//get parameters from the URL
-	$user_requested = $_GET['user'];
-
+//echo "<span style='position: absolute; margin: auto; top: 0; right: 0; bottom: 0; left: 0; width: 500px; height: 200px;'><b>Joke:</b><br>";
+//get parameters from the URL
+	$user_requested = $_SESSION['username'];
 	$conn = new mysqli( "127.0.0.1", "root", "1qaz2wsx", "web_project" );
-	$sql = "SELECT comment FROM all_comments WHERE username='" . $user_requested . "'";
+	$sql = "SELECT comment FROM all_comments inner join users on all_comments.uid = users.uid WHERE username='" . $user_requested . "'";
 	$result = mysqli_query( $conn, $sql );
 
 	while($row = $result->fetch_assoc()) {
-	  
-	  echo $row['comment']. "<br><br>";
-	 }
+  	echo $row['comment']. "<br><br>";
+ 	}
 ?>
 <br><br><p>Add a new joke?
 <form class="pure-form pure-form-stacked" action="/newjoke.php" method="post">
